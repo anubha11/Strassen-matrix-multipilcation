@@ -1,7 +1,8 @@
 #include<iostream>
 #include<cmath>
 using namespace std;
-int **AllocateDynamicArray( int sz)
+
+int **AllocateDynamicArray( int sz )     //allocate memory locattion to array
 {
     int **dynamicArray;
     dynamicArray = new int*[sz];
@@ -13,12 +14,12 @@ int **AllocateDynamicArray( int sz)
     }
     return dynamicArray;
 }
-void FreeDynamicArray(int** dArray)
+void FreeDynamicArray(int** dArray)     //free up memory
 {
     delete [] *dArray;
     delete [] dArray;
 }
-int **sum(int** A,int** B,int m)
+int **sum(int** A,int** B,int m)       //add 2 matrices
 {
     int **S = AllocateDynamicArray(m);
     for( int i = 0 ; i < m ; i++ ){
@@ -28,7 +29,7 @@ int **sum(int** A,int** B,int m)
     }
     return S;
 }
-int **subtract(int** A,int** B,int m)
+int **subtract(int** A,int** B,int m)   //subtract 2 matrices
 {
     int **D = AllocateDynamicArray(m);
     for( int i = 0 ; i < m ; i++ ){
@@ -39,7 +40,7 @@ int **subtract(int** A,int** B,int m)
     return D;
 }
 
-int **strassen(int** A, int** B , int n){
+int **strassen(int** A, int** B , int n){    //the function
     int **C = AllocateDynamicArray(n);
     if (n==1){
         C[0][0]=(A[0][0])*(B[0][0]);
